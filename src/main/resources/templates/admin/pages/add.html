@@ -13,6 +13,8 @@
     	<h1 class="display-2">Add a page</h1>
     	<a href="/admin/pages" class="btn btn-primary mb-5">Back to pages</a>
     	
+    	<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+    	
     	<form method="post" th:object="${page}"th:action="@{/admin/pages/add}">
     	
     	<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
@@ -33,7 +35,7 @@
     	
     	<div class="form-group">
     		<label for="">Content</label>
-    		<textarea nth:field="*{content}" rows="10" class="form-control" placeholder="Content"></textarea>
+    		<textarea th:field="*{content}" rows="10" class="form-control" placeholder="Content"></textarea>
     		<span class="error" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
     	</div>
     	<button class="btn btn-danger mb-5">Add</button>
