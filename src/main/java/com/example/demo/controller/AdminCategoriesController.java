@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.model.CategoryRepository;
@@ -29,7 +31,7 @@ public class AdminCategoriesController {
 	@GetMapping()
 	public String index(Model model) {
 		
-		List<Category> categories = this.categoryRepo.findAll();
+		List<Category> categories = this.categoryRepo.findAllByOrderBySortingAsc();
 		
 		model.addAttribute("categories", categories);
 		
@@ -130,7 +132,32 @@ public class AdminCategoriesController {
 		return "redirect:/admin/categories/edit/" + category.getId();
 	}
 	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable int id, RedirectAttributes redirectAttributes) {
+		
+		categoryRepo.deleteById(id);
+		
+		redirectAttributes.addFlashAttribute("message", "Category deleted");
+		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+		
+		return "redirect:/admin/categories";
+	}
 	
+	@PostMapping("/reorder")
+	public @ResponseBody String reorder(@RequestParam("id[]") int[] id) {
+		
+		int count = 1;
+		Category category;
+		
+		for(int categoryId: id) {
+			category = categoryRepo.getOne(categoryId);
+			category.setSorting(count);
+			categoryRepo.save(category);
+			count++;
+		}
+		
+		return "ok";
+	}
 }
 
 
