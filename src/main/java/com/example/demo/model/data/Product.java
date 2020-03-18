@@ -27,7 +27,7 @@ public class Product {
 	
 	private String slug;
 	
-	private String dexcription;
+	private String description;
 	
 	private String image;
 	
