@@ -6,4 +6,6 @@ import com.example.demo.model.data.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer>{
 
+	Product findBySlug(String slug);
+
 }
