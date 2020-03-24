@@ -75,8 +75,6 @@ public class AdminProductsController {
 		List<Category> categories = categoryRepo.findAll();
 		model.addAttribute("categories", categories);
 		
-		
-		
 		return "admin/products/add";
 	}
 
