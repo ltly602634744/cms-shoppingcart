@@ -8,4 +8,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 
 	Product findBySlug(String slug);
 
+	Product findBySlugAndIdNot(String slug, int id);
+
 }
