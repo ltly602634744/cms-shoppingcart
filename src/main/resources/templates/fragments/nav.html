@@ -2,79 +2,48 @@
   <a class="navbar-brand" href="/">
     CMS ShoppingCart
   </a>
-  
-<button 
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault"
-    aria-expanded="false"
-    aria-label="Toggle navigation">
 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <span class="navbar-toggler-icon">
-  </span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-    <a class="nav-link" href="#">
-      Home
-      <span class="sr-only">
-        (current)
-      </span>
-    </a>
-  </li>
-  <li class="nav-item">
-  <a class="nav-link" href="#">
-    Link
-  </a>
-</li>
-
-</ul>
-
-</div>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" th:each="page: ${cpages}" th:if="${page.slug != 'home'}">
+        <a class="nav-link" th:href="@{'/' + ${page.slug}}" th:text="${page.title}"></a>
+      </li>
+    </ul>
+  </div>
 </nav>
-
-
-
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="nav-admin">
   <a class="navbar-brand" href="/" target="_blank">
     Home Page
   </a>
- 
-<button 
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault"
-    aria-expanded="false"
-    aria-label="Toggle navigation">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 
 
-  <span class="navbar-toggler-icon">
-  </span>
-</button>
+    <span class="navbar-toggler-icon">
+    </span>
+  </button>
 
-<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-    	<a class="nav-link" href="/admin/pages">Pages</a>
-  	</li>
-  	
-  	<li class="nav-item active">
-    	<a class="nav-link" href="/admin/categories">Categories</a>
-  	</li>
-  	
-  	<li class="nav-item active">
-    	<a class="nav-link" href="/admin/products">Products</a>
-  	</li>
-</ul>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/pages">Pages</a>
+      </li>
 
-</div>
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/categories">Categories</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/products">Products</a>
+      </li>
+    </ul>
+
+  </div>
 </nav>
-
