@@ -58,7 +58,7 @@ public class AdminProductsController {
 		model.addAttribute("products", products);
 		model.addAttribute("cats", cats);
 		
-		Long count = productRepo.count();
+		long count = productRepo.count();
 		double pageCount = Math.ceil((double)count / (double)perPage);
 		
 		model.addAttribute("pageCount", (int)pageCount);
