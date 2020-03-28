@@ -13,7 +13,12 @@
         <div th:replace="/fragments/categories"></div>
         <div class="col"></div>
         <div class="col-6 text-center">
+          
           <h3 class="display-4">Login</h3>
+
+          <div class="alert alert-danger" th:if="${param.error}">
+            Invalid credentials
+          </div>
 
           <form method="post" th:action="@{/login}">
 
@@ -24,7 +29,7 @@
 
             <div class="form-group">
               <label for="">Password:</label>
-              <input type="password" class="form-control" name="password" id="password">
+              <input type="password" class="form-control" name="password" id="password" placeholder="Password">
             </div>
             
             <button class="btn btn-danger mb-5">Login</button>

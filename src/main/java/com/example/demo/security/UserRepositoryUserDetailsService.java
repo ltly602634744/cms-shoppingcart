@@ -12,7 +12,7 @@ import com.example.demo.model.data.Admin;
 import com.example.demo.model.data.User;
 
 @Service
-public class UserRepositoryUserDetailsServices implements UserDetailsService{
+public class UserRepositoryUserDetailsService implements UserDetailsService{
 
 	@Autowired
 	private UserRepository userRepo;
