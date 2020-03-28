@@ -37,7 +37,7 @@ public class Common {
 		
 		List<Page> pages = pageRepo.findAllByOrderBySortingAsc();
 		
-		List<Category> categories = categoryRepo.findAll();
+		List<Category> categories = categoryRepo.findAllByOrderBySortingAsc();
 		
 		boolean cartActive = false;
 		
