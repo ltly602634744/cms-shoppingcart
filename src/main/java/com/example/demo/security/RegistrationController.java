@@ -30,10 +30,6 @@ public class RegistrationController {
 		return "register";
 	}
 	
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
 	
 	@PostMapping
 	public String register(@Valid User user, BindingResult bindingResult,

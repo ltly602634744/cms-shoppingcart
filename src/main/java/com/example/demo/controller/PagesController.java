@@ -17,13 +17,18 @@ public class PagesController {
 	@Autowired
 	private PageRepository pageRepo;
 
-	@GetMapping()
+	@GetMapping
 	public String home(Model model) {
 		
 		Page page = pageRepo.findBySlug("home");
 		model.addAttribute("page", page);
 		
 		return "page";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
 	}
 	
 	@GetMapping("/{slug}")
