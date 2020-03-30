@@ -66,7 +66,7 @@ public class AdminProductsController {
 		model.addAttribute("count", count);
 		model.addAttribute("page", page);
 		
-		return "/admin/products/index";
+		return "admin/products/index";
 	}
 	
 	@GetMapping("/add")

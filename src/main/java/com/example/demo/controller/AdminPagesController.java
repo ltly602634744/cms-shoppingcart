@@ -39,7 +39,7 @@ public class AdminPagesController {
 		
 		model.addAttribute("pages", pages);
 		
-		return"/admin/pages/index";
+		return"admin/pages/index";
 	}
 	
 	@GetMapping("/add")
